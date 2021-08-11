@@ -1,0 +1,34 @@
+.container_grid{
+    width:90%;
+    height:auto;
+    margin : 0 auto ; 
+    margin-left : 7% ; 
+    margin-top : 2% ; 
+    
+
+
+}
+.title1{ 
+    text-align: center;
+}
+.colomCam{
+    text-align : center ; 
+}
+.all{
+    background-color : #344470 ; 
+    height:100vh ; 
+}
+.cameraView{
+    
+    width: 100%;
+    background: #1A2238;
+    height: 87%;
+    vertical-align: middle;
+}
+.span{
+    width : 3%;
+    display: inline-block;
+}
+.image{
+    width :100%
+}

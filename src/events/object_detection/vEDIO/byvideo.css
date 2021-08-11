@@ -1,0 +1,108 @@
+.UploadV{
+    width: 33%
+}
+.anim{
+ display :  none;
+}
+.anim::Onclick{
+    
+}
+
+.container11{
+    width: 80%;
+    margin :  0  auto ; 
+    text-align: center;
+}
+/*this is for file upload */
+
+.UploadV{
+
+margin: 0 auto ; 
+margin-top : 2%; 
+width: 20%;
+
+}
+
+.line{
+  width:  5%; 
+  height: 3px ;
+  background-color: #fff;
+  margin : 0 auto ;
+  margin-top : -10px ;  
+}
+.titleN{
+    text-transform: capitalize;
+    font-size: 20px ;
+    color: #fff;
+    font-family: 'Varela Round', sans-serif;
+
+}
+.sub_tite{
+    margin-left: -81%;
+    margin-top: 5%;
+}
+.inputFile{
+    width : 70% ; 
+    height: 15% ;
+    margin: 0 auto ;    
+    padding  : 15px  ; 
+    background-color:  #0741738f;
+    margin-top : 6% ; 
+    
+}
+
+.uploadVid{
+    position : relative ;
+}
+  
+
+.btn {
+    margin-top: 10%;
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 51px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
+    font-weight:900;
+    font-size:17px;
+    letter-spacing: 0.045em;
+}
+
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn svg rect {
+   
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.btn span{
+  color: rgb(255,130,130);
+ 
+  
+
+  
+}
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+}
+
+
