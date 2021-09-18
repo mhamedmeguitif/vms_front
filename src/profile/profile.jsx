@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useState, useEffect  } from 'react'
 import './profile.css'
 import ESI from  '../images/logoesi.png'
 import User from  '../images/user.svg'
-const profile = props => {
+import axios from 'axios'
+import Cookies from 'js-cookie'
+
+const Profile = props => {
+
     return (
         <div>
    <div class="hd">
@@ -134,4 +138,4 @@ const profile = props => {
 
 
 
-export default profile
+export default Profile

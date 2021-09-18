@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './home.css'
+import Cookies from 'js-cookie'
 
 export default class Home_page extends Component {
   state = {}
@@ -18,7 +19,7 @@ export default class Home_page extends Component {
                 <li><a href="#about">About </a></li>
                 <li><a href="#proj">LIBRERIES</a></li>
                 <li><a href="#cont">Contact</a></li>
-                <li><a href="/login">Login</a></li>
+                {Cookies.get('jwt') ? <li><a href="/realtime">Panel</a></li> : <li><a href="/login">Login</a></li>}
             </ul>
         </div>
 

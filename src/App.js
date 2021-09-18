@@ -1,10 +1,10 @@
 import "./App.css";
 /* main componenets  */
 import Login from "./login/login";
+import Profile from "./profile/profile"
 import AddUser from "./AddUser/AddUser";
 import Home_Page from "./home/home";
 import About_Page from "./about/about.jsx";
-
 import ErrorPage from "./Error/error";
 /*-------------functions ------------------ */
 import RealTime from "./real_time_vedio/realtime";
@@ -35,18 +35,22 @@ import PaletteDetectionloader from "./events/registration_number_detection/loade
 
 import { BrowserRouter, Route } from "react-router-dom";
 import SavedEvents from "./SavedEvents/SavedEvents";
+
+import Result from "./result/result";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Route exact path="/" component={Home_Page} />
-        <Route path="/AddUser" component={AddUser} />
-        <Route path="/login" component={Login} />
+        <Route path="/AddUser" component={AddUser} /> {/*done*/}
+        <Route path="/login" component={Login} /> {/*done*/}
         <Route path="/about_us" component={About_Page} />
         <Route path="/realTime" component={RealTime} />
-        <Route path="/savedEvents" component={SavedEvents} />
-        <Route path="/devices" component={Devices} />
-        <Route path="/newDevice" component={ADD} />
+        <Route path="/savedEvents" component={SavedEvents} />{/*half done*/}
+        <Route path="/devices" component={Devices} /> {/*half done*/}
+        <Route path="/newDevice" component={ADD} /> {/*done*/}
+        <Route path="/profile" component={Profile}/> {/*half done*/}
         
         {/*Object detection*/}
         <Route exact path="/OD" component={ObjectDetection} />
@@ -70,6 +74,9 @@ function App() {
         <Route exact path="/PD" component={PaletteDetection} />
         <Route exact path="/PD/next" component={PaletteDetectionNext} />
         <Route exact path="/PD/loader" component={PaletteDetectionloader} />
+
+        {//Results here
+        }<Route exact path='/result' component={Result} />
 
         {/*404 handling*/}
         <Route path="/error" component={ErrorPage} />

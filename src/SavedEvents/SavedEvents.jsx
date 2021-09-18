@@ -1,304 +1,128 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Profile from '../profile/profile'
 import './SavedEvents.css'
-function videos() {
-    return (
-        <div>
-            <Profile/>
-<div class="containerSE">
+import axios from 'axios'
+import simpleAuth from '../auth/auth'
 
+function Videos() {
+  let url = "http://127.0.0.1:8000/data/events"
 
-<main class="st_viewport">
-  <div class="st_wrap_table" data-table_id="0">
+  const [events, setEvents] = useState();
+  const [obj, setObj] = useState([]);
+  const [face, setFace] = useState([]);
+  const [palet, setPalet] = useState([]);
+  const [mov, setMov] = useState([])
 
-    <header class="st_table_header">
-      <h2>Object Detection</h2>
-      <div class="st_row">
-        <div class="st_column _rank">ID</div>
-        <div class="st_column _name">Time</div>
-        <div class="st_column _surname">Type</div>
-        <div class="st_column _year">CAM  </div>
-        <div class="st_column _section">Channel Name</div>
-      </div>
-    </header>
+  useEffect(()=>{
+    axios.get(url).then(resp=>{
+      setEvents(resp.data);
+      setObj(resp.data.filter(r=>{return r.event_type=='fuck'}));
+      setFace(resp.data.filter(r=>{return r.event_type=='face_detection'}));
+      setMov(resp.data.filter(r=>{return r.event_type=='movement_detection'}));
+      setPalet(resp.data.filter(r=>{return r.event_type=='pallet_detection'}));
+      console.log(obj)
+    }).catch(err=>{console.log(err)})
+  }, []);
 
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">17:15:00</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">1</div>
-        <div class="st_column _name">18:12:05</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">2</div>
-        <div class="st_column _name">20:15:00</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">3</div>
-        <div class="st_column _name">10:15:30</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">4</div>
-        <div class="st_column _name">17:15:00</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">17:15:00</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">17:15:00</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">17:15:00</div>
-        <div class="st_column _surname">OD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-    </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="1">
-    <header class="st_table_header">
-      <h2>Motion detection</h2>
-      <div class="st_row">
-        <div class="st_column _rank">ID</div>
-        <div class="st_column _name">Time</div>
-        <div class="st_column _surname">Type</div>
-        <div class="st_column _year">CAM  </div>
-        <div class="st_column _section">Channel Name</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">1</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">2</div>
-        <div class="st_column _name">17:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">3</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">4</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">5</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">6</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">7</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">MD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-    </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="2">
-    <header class="st_table_header">
-      <h2>Palet Detection</h2>
-      <div class="st_row">
-        <div class="st_column _rank">ID</div>
-        <div class="st_column _name">Time</div>
-        <div class="st_column _surname">Type</div>
-        <div class="st_column _year">CAM  </div>
-        <div class="st_column _section">Channel Name</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">1</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        
-        <div class="st_column _rank">2</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">3</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">4</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">5</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">6</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">7</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">PD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-    </div>
-  </div>
-  <div class="st_wrap_table" data-table_id="3">
-    <header class="st_table_header">
-      <h2>Face Detection</h2>
-      <div class="st_row">
-        <div class="st_column _rank">ID</div>
-        <div class="st_column _name">Time</div>
-        <div class="st_column _surname">Type</div>
-        <div class="st_column _year">CAM  </div>
-        <div class="st_column _section">Channel Name</div>
-      </div>
-    </header>
-    <div class="st_table">
-      <div class="st_row">
-        <div class="st_column _rank">0</div>
-        <div class="st_column _name">John</div>
-        <div class="st_column _surname">Doe</div>
-        <div class="st_column _year">1973</div>
-        <div class="st_column _section">Germany</div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">0</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-      <div class="st_column _rank">1</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">2</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">3</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">4</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">5</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-      <div class="st_row">
-        <div class="st_column _rank">6</div>
-        <div class="st_column _name">15:15:00</div>
-        <div class="st_column _surname">FD</div>
-        <div class="st_column _year">CAM--1</div>
-        <div class="st_column _section">C 1 </div>
-      </div>
-    </div>
-  </div>
-  
-</main>
-
-</div>
+  return (
+    <div>
+      {simpleAuth()}
+      {events && <div>
+        <Profile/>
+        <div class="containerSE">
+          <main class="st_viewport">
+            <div class="st_wrap_table" data-table_id="0">
+              
+              <header class="st_table_header">
+                <h2>Object Detection</h2>
+                <div class="st_row">
+                  <div class="st_column _rank">ID</div>
+                  <div class="st_column _name">Time</div>
+                  <div class="st_column _surname">Type</div>
+                  <div class="st_column _year">CAM  </div>
+                  <div class="st_column _section">Channel Name</div>
+                </div>
+              </header>
+              <div class="st_table">
+                {obj.map(event => {
+                  return <div class="st_row">
+                    <div class="st_column _rank">{event.id}</div>
+                    <div class="st_column _name">{event.event_at}</div>
+                    <div class="st_column _surname">{event.camera}</div>
+                    <div class="st_column _year">{event.camera_type}</div>
+                    <div class="st_column _section">{event.video_src}</div>
+                  </div>})
+                }
+              </div>
+              <header class="st_table_header">
+                <h2>Face Detection</h2>
+                <div class="st_row">
+                  <div class="st_column _rank">ID</div>
+                  <div class="st_column _name">Time</div>
+                  <div class="st_column _surname">Type</div>
+                  <div class="st_column _year">CAM  </div>
+                  <div class="st_column _section">Channel Name</div>
+                </div>
+              </header>
+              <div class="st_table">
+                {face.map(event => {
+                  return <div class="st_row">
+                    <div class="st_column _rank">{event.id}</div>
+                    <div class="st_column _name">{event.event_at}</div>
+                    <div class="st_column _surname">{event.camera}</div>
+                    <div class="st_column _year">{event.camera_type}</div>
+                    <div class="st_column _section">{event.video_src}</div>
+                  </div>})
+                }
+              </div>
+              <header class="st_table_header">
+                <h2>Movement Detection</h2>
+                <div class="st_row">
+                  <div class="st_column _rank">ID</div>
+                  <div class="st_column _name">Time</div>
+                  <div class="st_column _surname">Type</div>
+                  <div class="st_column _year">CAM  </div>
+                  <div class="st_column _section">Channel Name</div>
+                </div>
+              </header>
+              <div class="st_table">
+                {mov.map(event => {
+                  return <div class="st_row">
+                    <div class="st_column _rank">{event.id}</div>
+                    <div class="st_column _name">{event.event_at}</div>
+                    <div class="st_column _surname">{event.camera}</div>
+                    <div class="st_column _year">{event.camera_type}</div>
+                    <div class="st_column _section">{event.video_src}</div>
+                  </div>})
+                }
+              </div>
+              <header class="st_table_header">
+                <h2>Palette Detection</h2>
+                <div class="st_row">
+                  <div class="st_column _rank">ID</div>
+                  <div class="st_column _name">Time</div>
+                  <div class="st_column _surname">Type</div>
+                  <div class="st_column _year">CAM  </div>
+                  <div class="st_column _section">Channel Name</div>
+                </div>
+              </header>
+              <div class="st_table">
+                {palet.map(event => {
+                  return <div class="st_row">
+                    <div class="st_column _rank">{event.id}</div>
+                    <div class="st_column _name">{event.event_at}</div>
+                    <div class="st_column _surname">{event.camera}</div>
+                    <div class="st_column _year">{event.camera_type}</div>
+                    <div class="st_column _section">{event.video_src}</div>
+                  </div>})
+                }
+              </div>
+            </div>
+          </main>
         </div>
-    )
+      </div>}
+    </div>
+  )
 }
 
-export default videos
+export default Videos

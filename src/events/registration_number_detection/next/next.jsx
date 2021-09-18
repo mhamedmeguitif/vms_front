@@ -1,8 +1,25 @@
-import React from "react";
+import React, {useState, useContext} from "react";
 import Profile from "../../../profile/profile";
 import "./next.css";
+import simpleAuth from "../../../auth/auth";
+import axios from "axios";
 
-const next = () => {
+const Next = () => {
+
+  const url = 'http://127.0.0.1:8000/anpr_detection/';
+
+  const [image, setImage] = useState();
+  const [result, setResult] = useState();
+
+  const changeHandler = (e) => {handleUpload(e);setImage(e.target.files);};
+  const uploadHandler = (e) => {
+      const uploadedFile = new FormData();
+      uploadedFile.append('image', image[0]);
+      axios.post(url, uploadedFile, {headers: {'Content-Type':'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'}}).then((resp)=>{
+        setResult(resp.data.txt)
+      }).catch(err=>{})
+  }
+
     const [highlight, setHighlight] = React.useState(false);
     const [preview, setPreview] = React.useState("");
     const [drop, setDrop] = React.useState(false);
@@ -60,9 +77,11 @@ const next = () => {
      }
   return (
     <div>
+        {simpleAuth()}
             <Profile/>
-            <div class="titleContainer"><h1 class="title">Uplaod the  image and Make a test ! </h1></div>
-           <div className="lineTitle" ></div>
+            {!result &&<div>
+        <div class="titleContainer"><h1 class="title">Uplaod the  image and Make a test ! </h1></div>
+        <div className="lineTitle" ></div>
         <div
             onDragEnter={(e) => handleEnter(e)}
             onDragLeave={(e) => handleLeave(e)}
@@ -80,21 +99,30 @@ const next = () => {
                 type="file"
                 className="upload-file"
                 accept="image/*"
-                onChange={(e) => handleUpload(e)}
+                onChange={(e)=>changeHandler(e)}
                 />
                 <button className="button">Upload Here</button>
             </div>
             </form>
         </div>
-        <a href="#" class="animation submitbtn  submitImage">
+        <a class="animation submitbtn  submitImage" onClick={uploadHandler}>
             <span></span>
             <span></span>
             <span></span>
             
             see the resualt 
             </a>
+        </div>}
+        {result&&<div>
+            <div className="cor">
+                <div className="som">
+                    <h1>The Pallete Number :</h1>
+                    <h2>{result}</h2>
+                </div>
+            </div>
+            </div>}
  </div>
   );
 };
 
-export default next;
+export default Next;

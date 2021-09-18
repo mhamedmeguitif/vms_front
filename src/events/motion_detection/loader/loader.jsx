@@ -1,9 +1,12 @@
 import React from 'react';
 import Profile from  "../../../profile/profile"
 import "./loader.css";
+import simpleAuth from '../../../auth/auth';
+
 const loader = () => {
     return (
         <div>
+            {simpleAuth()}
             <Profile/>
             <div class="titleContainer"><h1 class="title">the web cam will open  </h1></div>
            <div className="lineTitle" ></div>

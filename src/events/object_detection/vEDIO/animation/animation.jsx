@@ -1,9 +1,13 @@
 import React from 'react';
 import Profile from  "../../../../profile/profile"
 import "./animation.css"
+import simpleAuth from '../../../../auth/auth';
+
 const animation = () => {
     return (
         <div>
+
+            {simpleAuth()}
              <div>
             <Profile/>
             

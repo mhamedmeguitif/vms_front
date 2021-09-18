@@ -1,9 +1,13 @@
 import React from 'react';
 import Profile from  "../../profile/profile"
 import "./face_detection.css"
+import simpleAuth from '../../auth/auth';
+
 const face_detection = () => {
+
     return (
         <div>
+          {simpleAuth()}
               <Profile/>
             <div class="titleContainer"><h1 class="title">Face  Detection </h1></div>
             <div className="lineTitle" ></div>

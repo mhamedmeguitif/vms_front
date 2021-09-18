@@ -5,10 +5,12 @@ import Webcam  from  'react-webcam'
 import noSignal from  "../images/nosignal.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "./realtime.css"
+import simpleAuth from '../auth/auth';
 
 function realtime() {
     return (
         <div class="all">
+            {simpleAuth()}
             <Profile/>
             <div class="container_grid">
             <Grid>

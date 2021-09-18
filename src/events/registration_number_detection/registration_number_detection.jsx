@@ -1,9 +1,11 @@
 import React from "react";
 import Profile from "../../profile/profile";
 import "./registration_number_detection.css";
+import simpleAuth from "../../auth/auth";
 const registration_number_detection = () => {
   return (
     <div>
+      {simpleAuth()}
       <Profile />
       <div class="titleContainer">
         <h1 class="title">Palette Detection </h1>
@@ -20,7 +22,7 @@ const registration_number_detection = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
                 totam velit? Iure nemo labore inventore?
               </p>
-              <a href="/PD/loader">GO </a>
+              <a href="/pd/loader">GO </a>
             </div>
           </div>
         </div>

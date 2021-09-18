@@ -2,6 +2,8 @@ import React from 'react'
 import AboutImag from  '../images/content.svg'
 import TeamImage from '../images/team.jpg'
 import './about.css'
+import Cookies from 'js-cookie'
+
 const about = () => {
     return (
         <div>
@@ -11,7 +13,7 @@ const about = () => {
                     <li><a href="/">About </a></li>
                     <li><a href="/">LIBRERIES</a></li>
                     <li><a href="/">Contact</a></li>
-                    <li><a href="/login">Login</a></li>
+                    {Cookies.get('jwt') ? <li><a href="/realtime">Panel</a></li> : <li><a href="/login">Login</a></li>}
                 </ul>
             </div>
             <div class="home">

@@ -1,9 +1,12 @@
 import React from 'react';
 import Profile from  "../../profile/profile"
 import "./motion_detection.css"
+import simpleAuth from '../../auth/auth';
+
 const motion_detection = () => {
     return (
         <div>
+          {simpleAuth()}
             <Profile/>
             <div class="titleContainer"><h1 class="title">Motion  Detection </h1></div>
             <div className="lineTitle" ></div>

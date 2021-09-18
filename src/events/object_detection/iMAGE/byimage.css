@@ -69,3 +69,21 @@
 .titleContainer{
 margin-top  : 5%
 }
+.cor {
+    width: 1200px;
+    height: 620px;
+}
+
+.som {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    color: white;
+}
+
+.pra{
+    padding-left: 200px;
+}
